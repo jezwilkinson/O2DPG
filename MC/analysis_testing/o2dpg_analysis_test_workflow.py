@@ -214,6 +214,8 @@ def add_analysis_tasks(workflow, input_aod="./AO2D.root", output_dir="./Analysis
                 from ROOT import TFile
                 froot = TFile.Open(input_aod, "READ")
                 found_O2collision_001 = False
+                found_O2zdc_001 = False
+                found_O2bc_001 = False
                 for i in froot.GetListOfKeys():
                     if "DF_" not in i.GetName():
                         continue
@@ -223,8 +225,16 @@ def add_analysis_tasks(workflow, input_aod="./AO2D.root", output_dir="./Analysis
                         # print(j)
                         if "O2collision_001" in j.GetName():
                             found_O2collision_001 = True
+                        if "O2zdc_001" in j.GetName():
+                            found_O2zdc_001 = True
+                        if "O2bc_001" in j.GetName():
+                            found_O2bc_001 = True
                     if not found_O2collision_001:
                         additional_workflows.append("o2-analysis-collision-converter --doNotSwap")
+                    if not found_O2zdc_001:
+                        additional_workflows.append("o2-analysis-zdc-converter")
+                    if not found_O2bc_001:
+                        additional_workflows.append("o2-analysis-bc-converter")
                     break
     if input_aod.endswith(".txt") and not input_aod.startswith("@"):
         input_aod = f"@{input_aod}"
@@ -250,7 +260,7 @@ def add_analysis_tasks(workflow, input_aod="./AO2D.root", output_dir="./Analysis
         piped_analysis = f" --configuration {configuration} | ".join(ana["tasks"])
         piped_analysis += f" --configuration {configuration} --aod-file {input_aod}"
         if timeout is not None:
-            piped_analysis += f" --timeout {timeout}"
+            piped_analysis += f" --time-limit {timeout}"
         workflow.append(create_ana_task(ana["name"], piped_analysis, output_dir, needs=needs, is_mc=is_mc))
 
     # append potential post-processing
