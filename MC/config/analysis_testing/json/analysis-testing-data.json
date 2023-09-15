@@ -207,7 +207,10 @@
     "v0setting_dcanegtopv": "0.1",
     "v0setting_dcapostopv": "0.1",
     "v0setting_dcav0dau": "1",
-    "v0setting_radius": "0.9"
+    "v0setting_radius": "0.9",
+    "v0setting_openingangle": "0.35",
+    "v0setting_ptmin": "0."
+
   },
   "pid-multiplicity": {
     "processIU": "1",
