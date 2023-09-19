@@ -359,6 +359,10 @@
   "qa-simple-its-tpc-match": {
     "minITSCl": "6",
     "minTPCCl": "100",
+    "minTrackpT": "0.4f",
+    "nMinNumberOfContributors": "2",
+    "vertexZMin": "-10.f",
+    "vertexZMax": "10.f",
     "ptBins": {
       "values": [
         "200",
