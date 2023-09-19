@@ -59,7 +59,8 @@
                       "o2-analysis-timestamp",
                       "o2-analysis-multiplicity-table",
                       "o2-analysis-qa-k0s-tracking-efficiency",
-                      "o2-analysis-perf-k0s-resolution"]
+                      "o2-analysis-perf-k0s-resolution",
+                      "o2-analysis-qa-simple-its-tpc-match"]
         },
         {
             "name": "Validation",

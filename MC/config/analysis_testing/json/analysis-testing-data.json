@@ -356,6 +356,32 @@
     "rapidity": "0.5",
     "v0cospa": "0.995"
   },
+  "qa-simple-its-tpc-match": {
+    "minITSCl": "6",
+    "minTPCCl": "100",
+    "ptBins": {
+      "values": [
+        "200",
+        "0.f",
+        "10.f"
+      ]
+    },
+    "phiBins": {
+      "values": [
+         "54",
+         "0.f",
+         "6.284f"
+      ]
+    },
+    "etaBins": {
+      "values": [
+         "200",
+         "-1.f",
+         "1.f"
+      ]
+    }
+  },
+
   "tof-signal": "",
   "tpc-pid-full": {
     "autofetchNetworks": "true",
